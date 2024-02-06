@@ -4,7 +4,7 @@ using System.IO;
 using System.IO.MemoryMappedFiles;
 using System.Threading;
 using FrooxEngine;
-using BaseX;
+using Elements.Core;
 
 namespace VarjoInterface.Companion
 {
@@ -21,7 +21,7 @@ namespace VarjoInterface.Companion
                 UniLog.Log("Varjo headset isn't detected");
                 return false;
             }
-            var modDir = Path.Combine(Engine.Current.AppPath, "nml_mods");
+            var modDir = Path.Combine(Engine.Current.AppPath, "rml_mods");
 
             CompanionProcess = new Process();
             CompanionProcess.StartInfo.WorkingDirectory = modDir;

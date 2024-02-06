@@ -1,14 +1,14 @@
-﻿using HarmonyLib;
-using NeosModLoader;
+﻿using Elements.Core;
 using FrooxEngine;
-using BaseX;
+using HarmonyLib;
+using ResoniteModLoader;
 using System;
 using VarjoInterface;
 using VarjoInterface.Companion;
 
 namespace NeosVarjoEye
 {
-	public class VarjoEyeIntegration : NeosMod
+	public class VarjoEyeIntegration : ResoniteMod
 	{
 		[AutoRegisterConfigKey]
 		public static ModConfigurationKey<bool> useLegacyBlinkDetection = new ModConfigurationKey<bool>("using_blink_detection", "Use Legacy Blink Detection", () => false);
@@ -52,10 +52,10 @@ namespace NeosVarjoEye
 		public override string Name => "VarjoEyeIntegration";
 		public override string Author => "dfgHiatus";
 		public override string Version => "2.0.0";
-		public override string Link => "https://github.com/dfgHiatus/NeosVarjoEyeTracking";
+		public override string Link => "https://github.com/dfgHiatus/ResoniteVarjoEyeTracking";
 		public override void OnEngineInit()
 		{
-			new Harmony("net.dfgHiatus.NeosVarjoEyeTracking").PatchAll();
+			new Harmony("net.dfgHiatus.ResoniteVarjoEyeTracking").PatchAll();
 			config = GetConfiguration();
 			tracker = new VarjoCompanionInterface();
 			if (tracker.Initialize())
@@ -109,12 +109,18 @@ namespace NeosVarjoEye
 
 				var leftPupil = config.GetValue(useLegacyPupilDilation) ?
 					(float)(gazeData.leftPupilSize * config.GetValue(userPupilScale)) :
-					eyeData.rightPupilDiameterInMM * 0.001f;
+					eyeData.leftPupilDiameterInMM * 0.001f;
+
+                /* 変更
 				var rightPupil = config.GetValue(useLegacyPupilDilation) ?
 					(float)(gazeData.leftPupilSize * config.GetValue(userPupilScale)) :
 					eyeData.leftPupilDiameterInMM * 0.001f;
+				*/
 
-				if (config.GetValue(useLegacyBlinkDetection))
+                var rightPupil = config.GetValue(useLegacyPupilDilation) ?
+					(float)(gazeData.rightPupilSize * config.GetValue(userPupilScale)) :
+					eyeData.rightPupilDiameterInMM * 0.001f;
+                if (config.GetValue(useLegacyBlinkDetection))
                 {
 					var leftOpen =
 						gazeData.leftStatus == GazeEyeStatus.Tracked ? config.GetValue(fullOpenState) : (
@@ -168,8 +174,8 @@ namespace NeosVarjoEye
 				else
                 {
 					_leftOpen = eyeData.leftEyeOpenness;
-					_rightOpen = eyeData.rightEyeOpenness;
-				}
+                    _rightOpen = eyeData.rightEyeOpenness;
+                }
 
 				bool leftStatus = gazeData.leftStatus == GazeEyeStatus.Compensated ||
 				                  gazeData.leftStatus == GazeEyeStatus.Tracked ||
