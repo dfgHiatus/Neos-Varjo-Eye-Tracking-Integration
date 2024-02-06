@@ -50,9 +50,9 @@ namespace NeosVarjoEye
 		private static VarjoModule tracker;
 
 		public override string Name => "VarjoEyeIntegration";
-		public override string Author => "dfgHiatus";
-		public override string Version => "2.0.0";
-		public override string Link => "https://github.com/dfgHiatus/ResoniteVarjoEyeTracking";
+		public override string Author => "ginjake fork from dfgHiatus";
+		public override string Version => "2.0.1";
+		public override string Link => "https://github.com/ginjake/ResoniteVarjoEyeTracking";
 		public override void OnEngineInit()
 		{
 			new Harmony("net.dfgHiatus.ResoniteVarjoEyeTracking").PatchAll();
