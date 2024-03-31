@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Elements.Core;
+using FrooxEngine;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.IO.MemoryMappedFiles;
 using System.Threading;
-using FrooxEngine;
-using BaseX;
 
 namespace VarjoInterface.Companion
 {

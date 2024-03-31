@@ -36,25 +36,29 @@
   <ItemGroup>
     <Reference Include="0Harmony, Version=2.0.4.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>I:\SteamLibrary\steamapps\common\NeosVR\Libraries\0Harmony.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Resonite\0Harmony.dll</HintPath>
     </Reference>
-    <Reference Include="BaseX, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\NeosVR\Neos_Data\Managed\BaseX.dll</HintPath>
+    <Reference Include="Elements.Core">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Resonite\Resonite_Data\Managed\Elements.Core.dll</HintPath>
     </Reference>
     <Reference Include="FrooxEngine, Version=2022.1.28.1335, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>I:\SteamLibrary\steamapps\common\NeosVR\Neos_Data\Managed\FrooxEngine.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Resonite\Resonite_Data\Managed\FrooxEngine.dll</HintPath>
     </Reference>
-    <Reference Include="NeosModLoader, Version=2022.4.7.52, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>I:\SteamLibrary\steamapps\common\NeosVR\Libraries\NeosModLoader.dll</HintPath>
+    <Reference Include="FrooxEngine.Store">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Resonite\Resonite_Data\Managed\FrooxEngine.Store.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\NeosVR\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Resonite\Resonite_Data\Managed\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json.Bson">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\NeosVR\Newtonsoft.Json.Bson.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Resonite\Resonite_Data\Managed\Newtonsoft.Json.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="ResoniteModLoader">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Resonite\Libraries\ResoniteModLoader.dll</HintPath>
+    </Reference>
+    <Reference Include="SkyFrost.Base">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Resonite\Resonite_Data\Managed\SkyFrost.Base.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Numerics" />

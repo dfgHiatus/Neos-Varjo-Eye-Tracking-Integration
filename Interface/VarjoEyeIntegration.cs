@@ -1,14 +1,13 @@
-﻿using HarmonyLib;
-using NeosModLoader;
+﻿using Elements.Core;
 using FrooxEngine;
-using BaseX;
-using System;
+using HarmonyLib;
+using ResoniteModLoader;
 using VarjoInterface;
 using VarjoInterface.Companion;
 
 namespace NeosVarjoEye
 {
-	public class VarjoEyeIntegration : NeosMod
+    public class VarjoEyeIntegration : ResoniteMod
 	{
 		[AutoRegisterConfigKey]
 		public static ModConfigurationKey<bool> useLegacyBlinkDetection = new ModConfigurationKey<bool>("using_blink_detection", "Use Legacy Blink Detection", () => false);
@@ -84,15 +83,6 @@ namespace NeosVarjoEye
 
 			private float _leftEyeBlinkMultiplier = 1.0f;
 			private float _rightEyeBlinkMultiplier = 1.0f;
-
-			public void CollectDeviceInfos(DataTreeList list)
-			{
-				DataTreeDictionary dataTreeDictionary = new DataTreeDictionary();
-				dataTreeDictionary.Add("Name", "Varjo Eye Tracking");
-				dataTreeDictionary.Add("Type", "Eye Tracking");
-				dataTreeDictionary.Add("Model", "Varjo HMD");
-				list.Add(dataTreeDictionary);
-			}
 
 			public void RegisterInputs(InputInterface inputInterface)
 			{
@@ -228,6 +218,15 @@ namespace NeosVarjoEye
 				eye.Squeeze = 0f;
 				eye.Frown = 0f;
 			}
-		}
+
+            public void CollectDeviceInfos(DataTreeList list)
+            {
+                DataTreeDictionary dataTreeDictionary = new DataTreeDictionary();
+                dataTreeDictionary.Add("Name", "Varjo Eye Tracking");
+                dataTreeDictionary.Add("Type", "Eye Tracking");
+                dataTreeDictionary.Add("Model", "Varjo HMD");
+                list.Add(dataTreeDictionary);
+            }
+        }
 	}
 }
