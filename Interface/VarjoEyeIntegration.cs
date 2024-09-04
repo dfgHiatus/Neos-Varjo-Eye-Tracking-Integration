@@ -51,7 +51,7 @@ namespace NeosVarjoEye
 
 		public override string Name => "VarjoEyeIntegration";
 		public override string Author => "ginjake fork from dfgHiatus";
-		public override string Version => "2.0.1";
+		public override string Version => "2.0.2";
 		public override string Link => "https://github.com/ginjake/ResoniteVarjoEyeTracking";
 		public override void OnEngineInit()
 		{
@@ -96,7 +96,7 @@ namespace NeosVarjoEye
 
 			public void RegisterInputs(InputInterface inputInterface)
 			{
-				eyes = new Eyes(inputInterface, "Varjo Eye Tracking");
+				eyes = new Eyes(inputInterface, "Varjo Eye Tracking", true);
 			}
 
 			public void UpdateInputs(float deltaTime)
@@ -193,8 +193,8 @@ namespace NeosVarjoEye
 				bool combinedStatus = gazeData.status == GazeStatus.Valid;
 				float combinedPupil = MathX.Average(leftPupil, rightPupil);
 				float combinedOpen = MathX.Average(eyes.LeftEye.Openness, eyes.RightEye.Openness);
-				
-				UpdateEye(in gazeData.gaze, in combinedStatus, in combinedPupil, in combinedOpen, in deltaTime, eyes.CombinedEye);
+
+                UpdateEye(in gazeData.gaze, in combinedStatus, in combinedPupil, in combinedOpen, in deltaTime, eyes.CombinedEye);
 
 				eyes.ComputeCombinedEyeParameters();
 
